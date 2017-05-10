@@ -112,7 +112,7 @@ class App extends Component {
         <div className="App-header">
           <div className="App-logo-name">
             <img src={logo} alt="" className="App-logo" />
-            <h2>Pseudogram</h2>
+            <h2>Pseudogram!</h2>
           </div>
           <div >
             {this.renderUserData()}
