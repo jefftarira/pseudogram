@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import firebase from 'firebase';
 import { Button } from 'muicss/react';
 import FileUpload from './FileUpload';
+import Card from './Card';
 import './App.css';
 import logo from './logo.svg';
+import logoGoogle from './googleicon.png';
 
 class App extends Component {
 
@@ -89,26 +91,25 @@ class App extends Component {
         <div className="Card-container">
           {
             this.state.pictures.map((picture, key) => (
-              <div className="App-card" key={key}>
-                <figure className="App-card-image">
-                  <figCaption className="App-card-footer">
-                    <img className="App-card-avatar" src={picture.photoURL} alt={picture.displayName} />
-                    <span>{picture.displayName}</span>
-                  </figCaption>
-                  <img className="Card-image" src={picture.image} alt="" />
-                </figure>
-              </div>
+              <Card obj={picture} key={key} />
             )).reverse()
           }
         </div>
       );
     }
-    return <button onClick={this.handleAuth}>Login con Google</button>;
+    return (
+      <div>
+        <button onClick={this.handleAuth} className="btn-login">
+          <img className="logo-login" src={logoGoogle} alt="logo google" />
+          <span>Login con google</span>
+        </button>
+      </div>
+    );
   }
 
   render() {
     return (
-      <di className="App">
+      <div className="App">
         <div className="App-header">
           <div className="App-logo-name">
             <img src={logo} alt="" className="App-logo" />
@@ -121,7 +122,7 @@ class App extends Component {
         <div className="App-intro">
           {this.renderLoginButton()}
         </div>
-      </di>
+      </div>
     );
   }
 }

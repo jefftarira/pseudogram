@@ -14,7 +14,7 @@ firebase.initializeApp({
 });
 
 ReactDOM.render(
-  <div>
+  <div className="main-container">
     <App />
   </div>,
   document.getElementById('root')
