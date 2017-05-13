@@ -80,7 +80,7 @@ class App extends Component {
           <div className="progress">
             <div className="indeterminate" />
           </div>
-          <small>Subiendo {Math.round(this.state.uploadValue)}%</small>
+          <small>Subiendo... {Math.round(this.state.uploadValue)}%</small>
         </div>
       );
     }
