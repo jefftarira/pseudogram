@@ -14,6 +14,7 @@ class App extends Component {
     this.state = {
       user: null,
       pictures: [],
+      uploadValue: 0,
     };
 
     this.handleAuth = this.handleAuth.bind(this);
@@ -72,11 +73,25 @@ class App extends Component {
     });
   }
 
+  renderUploadButton() {
+    if (this.state.uploadValue > 0 && this.state.uploadValue < 100) {
+      return (
+        <div className="margin-right">
+          <div className="progress">
+            <div className="indeterminate" />
+          </div>
+          <small>Subiendo {Math.round(this.state.uploadValue)}%</small>
+        </div>
+      );
+    }
+    return (<FileUpload onUpload={this.handleUpload} />);
+  }
+
   renderUserData() {
     if (this.state.user) {
       return (
         <div className="App-button">
-          <FileUpload onUpload={this.handleUpload} />
+          {this.renderUploadButton()}
           <img src={this.state.user.photoURL} alt={this.state.user.displayName} />
           <Button onClick={this.handleLogout}>Salir</Button>
         </div>
@@ -85,7 +100,7 @@ class App extends Component {
   }
 
   renderLoginButton() {
-    // Si el usuario esta logueado 
+    // Si el usuario esta logueado
     if (this.state.user) {
       return (
         <div className="Card-container">
