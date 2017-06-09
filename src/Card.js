@@ -8,7 +8,7 @@ class Card extends Component {
       picture: this.props.obj,
     };
   }
-
+  
   render() {
     return (
       <div className="App-card">
